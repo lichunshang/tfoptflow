@@ -222,13 +222,13 @@ class ModelPWCNet(ModelBase):
             dataset using the S<sub>long</sub> learning rate schedule introduced in E. Ilg et al.'s "FlowNet 2.0:
             Evolution of optical flow estimation with deep networks", starting from 0.0001 and reducing the learning
             rate by half at 0.4M, 0.6M, 0.8M, and 1M iterations. The data augmentation scheme is the same as in that
-            paper. We crop 448 × 384 patches during data augmentation and use a batch size of 8. We then fine-tune the
+            paper. We crop 448 x 384 patches during data augmentation and use a batch size of 8. We then fine-tune the
             models on the FlyingThings3D dataset using the S<sub>fine</sub> schedule while excluding image pairs with
-            extreme motion (magnitude larger than 1000 pixels). The cropped image size is 768 × 384 and the batch size
+            extreme motion (magnitude larger than 1000 pixels). The cropped image size is 768 x 384 and the batch size
             is 4. Finally, we finetune the models using the Sintel and KITTI training set as detailed in section "4.1.
             Main results".
         """
-        super().__init__(name, mode, session, options)
+        super(ModelPWCNet, self).__init__(name, mode, session, options)
         self.ds = dataset
         # self.adapt_infos = []
         # self.unique_y_shapes = []
@@ -1242,7 +1242,7 @@ class ModelPWCNet(ModelBase):
             where where T is the transpose operator and N is the length of the column vector C1<sup>l</sup>(x1).
             For an L-level pyramid, we only need to compute a partial cost volume with a limited search range of d
             pixels. A one-pixel motion at the top level corresponds to 2**(L−1) pixels at the full resolution images.
-            Thus we can set d to be small, e.g. d=4. The dimension of the 3D cost volume is d**2 × Hl × Wl, where Hl
+            Thus we can set d to be small, e.g. d=4. The dimension of the 3D cost volume is d**2 x Hl x Wl, where Hl
             and Wl denote the height and width of the L-th pyramid level, respectively.
 
             Per page 3 of paper, section "3. Approach," the warping and cost volume layers have no learnable parameters
