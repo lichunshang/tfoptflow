@@ -1,10 +1,10 @@
-# from model_pwcnet import ModelPWCNet, _DEFAULT_PWCNET_TEST_OPTIONS
-import model_pwcnet
-import model_base
-import optflow
-import losses
-import logger
-import multi_gpus
-import core_warp
-import core_costvol
-import utils
+# from model_pwcnet from ModelPWCNet, _DEFAULT_PWCNET_TEST_OPTIONS
+from model_pwcnet import *
+from model_base import *
+from optflow import *
+from losses import *
+from logger import *
+from multi_gpus import *
+from core_warp import *
+from core_costvol import *
+from utils import *
