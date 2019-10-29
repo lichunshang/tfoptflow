@@ -121,8 +121,8 @@ def _lr_cyclic(g_step_op, base_lr=None, max_lr=None, step_size=None, gamma=0.999
 
     ```python
     cycle = floor( 1 + global_step / ( 2 * step_size ) )
-    x = abs( global_step / step_size – 2 * cycle + 1 )
-    clr = learning_rate + ( max_lr – learning_rate ) * max( 0 , 1 - x )
+    x = abs( global_step / step_size - 2 * cycle + 1 )
+    clr = learning_rate + ( max_lr - learning_rate ) * max( 0 , 1 - x )
     ```
 
     Policies:
@@ -155,13 +155,13 @@ def _lr_cyclic(g_step_op, base_lr=None, max_lr=None, step_size=None, gamma=0.999
     global_div_double_step = tf.divide(global_step, double_step)
     cycle = tf.floor(tf.add(1., global_div_double_step))
 
-    # computing: x = abs( global_step / step_size – 2 * cycle + 1 )
+    # computing: x = abs( global_step / step_size - 2 * cycle + 1 )
     double_cycle = tf.multiply(2., cycle)
     global_div_step = tf.divide(global_step, step_size)
     tmp = tf.subtract(global_div_step, double_cycle)
     x = tf.abs(tf.add(1., tmp))
 
-    # computing: clr = learning_rate + ( max_lr – learning_rate ) * max( 0, 1 - x )
+    # computing: clr = learning_rate + ( max_lr - learning_rate ) * max( 0, 1 - x )
     a1 = tf.maximum(0., tf.subtract(1., x))
     a2 = tf.subtract(max_lr, lr)
     clr = tf.multiply(a1, a2)

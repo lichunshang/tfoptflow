@@ -76,7 +76,7 @@ def flow_read(src_file):
     Based on:
         - To read optical flow data from 16-bit PNG file:
         https://github.com/ClementPinard/FlowNetPytorch/blob/master/datasets/KITTI.py
-        Written by Clément Pinard, Copyright (c) 2017 Clément Pinard
+        Written by Clement Pinard, Copyright (c) 2017 Clement Pinard
         MIT License
         - To read optical flow data from PFM file:
         https://github.com/liruoteng/OpticalFlowToolkit/blob/master/lib/pfm.py
@@ -172,7 +172,7 @@ def flow_mag_stats(flow):
     Returns:
         Average flow magnitude
     Ref:
-        - OpenCV 3.0.0-dev documentation » OpenCV-Python Tutorials » Video Analysis »
+        - OpenCV 3.0.0-dev documentation >> OpenCV-Python Tutorials >> Video Analysis >>
         https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_video/py_lucas_kanade/py_lucas_kanade.html
     """
     # Convert the u,v flow field to angle,magnitude vector representation
@@ -200,7 +200,7 @@ def flow_to_img(flow, normalize=True, info=None, flow_mag_max=None):
         img: viewable representation of the dense optical flow in RGB format
         flow_avg: optionally, also return average flow magnitude
     Ref:
-        - OpenCV 3.0.0-dev documentation » OpenCV-Python Tutorials » Video Analysis »
+        - OpenCV 3.0.0-dev documentation >> OpenCV-Python Tutorials >> Video Analysis >>
         https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_video/py_lucas_kanade/py_lucas_kanade.html
     """
     hsv = np.zeros((flow.shape[0], flow.shape[1], 3), dtype=np.uint8)

@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 """
 multi_gpus.py
 
 Helpers to train a model using multi-GPU in-graph replication with synchronous updates.
 We create one copy of the model (aka, a tower) per device and instruct it to compute forward and backward passes.
-The gradients are then averaged and applied on the controller device where all the model’s variables reside.
+The gradients are then averaged and applied on the controller device where all the model's variables reside.
 The controller device is the CPU, meaning that all variables live on the CPU and are copied to the GPUs in each step.
 
 Written by Phil Ferriere
